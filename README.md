@@ -34,8 +34,11 @@ Things you may want to cover:
 ###  Create database migration
 ` rails db:migrate `
 
-###  Create table model
+###  Create model
 ` rails generate model {Model} {field}:string {field}:text {price}:integer `
+
+###  Create migration
+` rails generate migration {NameMigration} `
 
 ###  Running tests
 ` rails test `
