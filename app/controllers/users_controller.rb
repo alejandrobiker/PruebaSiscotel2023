@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
     
         if @user.save
-          redirect_to users_path, notice: 'Usuario creado con éxito'
+          redirect_to users_path, notice: 'Usuario creado con éxito.'
         else
           render :new, status: :unprocessable_entity
         end
@@ -28,12 +28,18 @@ class UsersController < ApplicationController
 
     def update
         if user.update(user_params)
-          redirect_to users_path, notice: 'Usuario actualizado con éxito'
+          redirect_to users_path, notice: 'Usuario actualizado con éxito.'
         else
           render :edit, status: :unprocessable_entity
         end
     end
     
+    def destroy
+      user.destroy
+  
+      redirect_to users_path, notice: 'Usuario eliminado con éxito.', status: :see_other
+    end
+
     private
 
     def user_params

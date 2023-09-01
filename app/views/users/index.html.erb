@@ -6,6 +6,10 @@
       <%= user.name %>
       <%= link_to 'Ver detalle', user_path(user) %>
       <%= link_to 'Editar', edit_user_path(user) %>
+      <%= link_to 'Eliminar', user_path(user), data: {
+        turbo_method: :delete,
+        turbo_confirm: '¿Desea eliminar el usuario?'
+      } %>
     </li>
   <% end %>
 </ul>

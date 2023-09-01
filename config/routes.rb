@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+  delete '/users/:id', to: 'users#destroy'
   patch '/users/:id', to: 'users#update'
   post '/users', to: 'users#create'
   get '/users/new', to: 'users#new', as: :new_user
