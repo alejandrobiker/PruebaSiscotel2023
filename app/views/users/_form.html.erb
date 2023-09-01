@@ -1,0 +1,61 @@
+<%= form_with model: @user do |form| %>
+  <div>
+    <%= form.label :type_person %>
+    <%= form.select :type_person, options_for_select([['Natural', 'natural'], ['Jurídica', 'juridica']]) %>
+    <% @user.errors.full_messages_for(:type_person).each do |message| %>
+      <div> <%= message %> </div>
+    <% end%>
+  </div>
+  <div>
+    <%= form.label :identification %>
+    <%= form.text_field :identification %>
+    <% @user.errors.full_messages_for(:identification).each do |message| %>
+      <div> <%= message %> </div>
+    <% end%>
+  </div>
+  <div>
+    <%= form.label :issuance_date %>
+    <%= form.text_field :issuance_date %>
+    <% @user.errors.full_messages_for(:issuance_date).each do |message| %>
+      <div> <%= message %> </div>
+    <% end%>
+  </div>
+  <div>
+    <%= form.label :expiration_date %>
+    <%= form.text_field :expiration_date %>
+    <% @user.errors.full_messages_for(:expiration_date).each do |message| %>
+      <div> <%= message %> </div>
+    <% end%>
+  </div>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <% @user.errors.full_messages_for(:name).each do |message| %>
+      <div> <%= message %> </div>
+    <% end%>
+  </div>
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+    <% @user.errors.full_messages_for(:email).each do |message| %>
+      <div> <%= message %> </div>
+    <% end%>
+  </div>
+  <div>
+    <%= form.label :main_phone %>
+    <%= form.number_field :main_phone %>
+    <% @user.errors.full_messages_for(:main_phone).each do |message| %>
+      <div> <%= message %> </div>
+    <% end%>
+  </div>
+  <div>
+    <%= form.label :secondary_phone %>
+    <%= form.text_field :secondary_phone %>
+    <% @user.errors.full_messages_for(:secondary_phone).each do |message| %>
+      <div> <%= message %> </div>
+    <% end%>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<%end %>
