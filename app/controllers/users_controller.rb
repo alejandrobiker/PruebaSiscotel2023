@@ -4,6 +4,10 @@ class UsersController < ApplicationController
         @users = User.all.order(id: :asc)
     end
 
+    def show
+        user
+    end
+
     def new
         @user = User.new
     end

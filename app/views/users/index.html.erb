@@ -4,6 +4,7 @@
     <li>
       <%= user.id %>
       <%= user.name %>
+      <%= link_to 'Ver detalle', user_path(user) %>
       <%= link_to 'Editar', edit_user_path(user) %>
     </li>
   <% end %>
