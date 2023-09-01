@@ -18,10 +18,26 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        user
+    end
+
+    def update
+        if user.update(user_params)
+          redirect_to users_path, notice: 'Usuario actualizado con éxito'
+        else
+          render :edit, status: :unprocessable_entity
+        end
+    end
+    
     private
 
     def user_params
         params.require(:user).permit(:type_person, :identification, :issuance_date, :expiration_date, :name, :email, :main_phone, :secondary_phone)
+    end
+
+    def user
+        @user = User.find(params[:id])
     end
 
 end
