@@ -1,15 +1,32 @@
-<h1> Usuarios </h1>
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= user.id %>
-      <%= user.name %>
-      <%= link_to 'Ver detalle', user_path(user) %>
-      <%= link_to 'Editar', edit_user_path(user) %>
-      <%= link_to 'Eliminar', user_path(user), data: {
-        turbo_method: :delete,
-        turbo_confirm: '¿Desea eliminar el usuario?'
-      } %>
-    </li>
-  <% end %>
-</ul>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Identificación</th>
+      <th scope="col">Email</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.identification %></td>
+        <td><%= user.email %></td>
+        <td><%= user.main_phone %></td>
+        <td>
+          <%= link_to 'Ver', user_path(user) %>
+          <%= link_to 'Editar', edit_user_path(user) %>
+          <%= link_to 'Eliminar', user_path(user), data: {
+              turbo_method: :delete,
+              turbo_confirm: '¿Desea eliminar el usuario?'
+            } 
+          %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
