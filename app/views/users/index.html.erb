@@ -23,7 +23,7 @@
             <%= link_to 'Editar', edit_user_path(user) %>
             <%= link_to 'Eliminar', user_path(user), data: {
               turbo_method: :delete,
-              turbo_confirm: '¿Desea eliminar el usuario?'
+              turbo_confirm: t('common.confirm')
             } 
           %>
           </td>
