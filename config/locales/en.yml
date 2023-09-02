@@ -26,10 +26,15 @@ en:
               blank: 'cannot be empty.'
             name:
               blank: 'cannot be empty.'
+              invalid: 'only alphanumeric characters, ñ and accented characters are allowed.'
             email:
               blank: 'cannot be empty.'
+              invalid: 'incorrect email format.'
             main_phone:
               blank: 'cannot be empty.'
+              invalid: 'only numeric characters are allowed and must start with zero.'
+            secondary_phone:
+              invalid: 'only numeric characters are allowed and must start with zero.'
   shared:
     header:
       users: 'Users'

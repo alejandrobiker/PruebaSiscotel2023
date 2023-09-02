@@ -26,10 +26,15 @@ es:
               blank: 'no puede estar vacío.'
             name:
               blank: 'no puede estar vacío.'
+              invalid: 'sólo se permiten caracteres alfanuméricos, la ñ y caracteres acentuados.'
             email:
               blank: 'no puede estar vacío.'
+              invalid: 'formato de email incorrecto.'
             main_phone:
               blank: 'no puede estar vacío.'
+              invalid: 'sólo se permiten caracteres numéricos y debe empezar por cero.'
+            secondary_phone:
+              invalid: 'sólo se permiten caracteres numéricos y debe empezar por cero.'
   shared:
     header:
       users: 'Usuarios'
