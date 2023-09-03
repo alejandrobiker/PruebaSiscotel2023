@@ -1,17 +1,17 @@
 <%= form_with model: @user do |form| %>
   <div class="row">
     <div class="col-12 col-sm-6 mb-3">
-      <%= form.label :type_person %>
-      <%= form.select :type_person, options_for_select([['Natural', 'natural'], ['Jurídica', 'juridica']]), {}, class:"form-select" %>
-      <% @user.errors.full_messages_for(:type_person).each do |message| %>
-        <div> <%= message %> </div>
+      <%= form.label :type_people_id %>
+      <%= form.collection_select :type_people_id, TypePeople.all.order(id: :asc), :id, :name, {}, class:"form-select" %>
+      <% @user.errors.full_messages_for(:type_people_id).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
     <div class="col-12 col-sm-6 mb-3">
       <%= form.label :identification %>
       <%= form.text_field :identification, class: "form-control" %>
       <% @user.errors.full_messages_for(:identification).each do |message| %>
-        <div> <%= message %> </div>
+        <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
   </div>
@@ -20,14 +20,14 @@
       <%= form.label :name %>
       <%= form.text_field :name, class: "form-control" %>
       <% @user.errors.full_messages_for(:name).each do |message| %>
-        <div> <%= message %> </div>
+        <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
     <div class="col-12 col-sm-6 mb-3">
       <%= form.label :email %>
       <%= form.text_field :email, class: "form-control" %>
       <% @user.errors.full_messages_for(:email).each do |message| %>
-        <div> <%= message %> </div>
+        <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
   </div>
@@ -36,14 +36,14 @@
       <%= form.label :issuance_date %>
       <%= form.date_field :issuance_date, class: "form-control" %>
       <% @user.errors.full_messages_for(:issuance_date).each do |message| %>
-        <div> <%= message %> </div>
+        <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
     <div class="col-12 col-sm-6 mb-3">
       <%= form.label :expiration_date %>
       <%= form.date_field :expiration_date, class: "form-control" %>
       <% @user.errors.full_messages_for(:expiration_date).each do |message| %>
-        <div> <%= message %> </div>
+        <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
   </div>
@@ -52,14 +52,14 @@
       <%= form.label :main_phone %>
       <%= form.text_field :main_phone, class: "form-control" %>
       <% @user.errors.full_messages_for(:main_phone).each do |message| %>
-        <div> <%= message %> </div>
+        <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
     <div class="col-12 col-sm-6 mb-3">
       <%= form.label :secondary_phone %>
       <%= form.text_field :secondary_phone, class: "form-control" %>
       <% @user.errors.full_messages_for(:secondary_phone).each do |message| %>
-        <div> <%= message %> </div>
+        <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
   </div>

@@ -1,7 +1,10 @@
 class User < ApplicationRecord
 
+    # Un usuario pertenece a un tipo de persona 
+    belongs_to :type_people
+
     # Validaciones de campo requerido
-    validates :type_person,     presence: true
+    validates :type_people_id,  presence: true
     validates :identification,  presence: true
     validates :issuance_date,   presence: true
     validates :expiration_date, presence: true

@@ -4,7 +4,7 @@ en:
       user: User
     attributes:
       user:
-        type_person: 'Type person'
+        type_people_id: 'Type people'
         identification: 'Identication number '
         issuance_date: 'Issuance date'
         expiration_date: 'Expiration date'
@@ -16,7 +16,7 @@ en:
       models:
         user:
           attributes:
-            type_person:
+            type_people_id:
               blank: 'cannot be empty.'
             identification:
               blank: 'cannot be empty.'

@@ -4,7 +4,7 @@ es:
       user: Usuario
     attributes:
       user:
-        type_person: 'Tipo de persona'
+        type_people_id: 'Tipo de persona'
         identification: 'Número de identificación'
         issuance_date: 'Fecha de emisión del documento'
         expiration_date: 'Fecha de vencimiento del documento'
@@ -16,7 +16,7 @@ es:
       models:
         user:
           attributes:
-            type_person:
+            type_people_id:
               blank: 'no puede estar vacío.'
             identification:
               blank: 'no puede estar vacío.'
