@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-12 col-sm-6 mb-3">
       <%= form.label :type_people_id %>
-      <%= form.collection_select :type_people_id, TypePeople.all.order(id: :asc), :id, :name, {}, class:"form-select" %>
+      <%= form.collection_select(:type_people_id, TypePeople.all.order(id: :asc), :id, :name, { prompt: "Seleccione..." }, onchange: 'typePeopleChange(this.value)', class:"form-select", id: "type_people_select")  %>
       <% @user.errors.full_messages_for(:type_people_id).each do |message| %>
         <div class="text-danger"> <%= message %> </div>
       <% end%>
     </div>
     <div class="col-12 col-sm-6 mb-3">
-      <%= form.label :identification %>
+      <%= form.label :identification, id: "identification-label" %>
       <%= form.text_field :identification, class: "form-control" %>
       <% @user.errors.full_messages_for(:identification).each do |message| %>
         <div class="text-danger"> <%= message %> </div>
@@ -17,7 +17,7 @@
   </div>
   <div class="row">
     <div class="col-12 col-sm-6 mb-3">
-      <%= form.label :name %>
+      <%= form.label :name, id: "name-label" %>
       <%= form.text_field :name, class: "form-control" %>
       <% @user.errors.full_messages_for(:name).each do |message| %>
         <div class="text-danger"> <%= message %> </div>
@@ -68,3 +68,30 @@
     <%= form.submit @user.id ? t('common.button_update') : t('common.button_create'), class: "btn btn-success" %>
   </div>
 <%end %>
+<script>
+  loadEditUser();
+  function loadEditUser() {
+    var type_people_select = document.getElementById("type_people_select")
+    var value = type_people_select.value
+    typePeopleChange(value)
+  }
+
+  function typePeopleChange(value) {
+    var label_iden = document.getElementById("identification-label");
+    var label_name = document.getElementById("name-label");
+    switch (value) {
+      case "1":
+        label_iden.innerText = "Cédula o pasaporte";
+        label_name.innerHTML = "Nombre completo"
+        break;
+      case "2":
+        label_iden.innerHTML = "RIF"
+        label_name.innerText = "Nombre de empresa o razón social";
+        break;
+      default:
+        label_iden.innerHTML = "Número de identificacíon"
+        label_name.innerHTML = "Nombre"
+        break;
+    }
+  }
+</script>
