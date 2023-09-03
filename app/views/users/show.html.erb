@@ -13,7 +13,7 @@
             <td><%= @user.type_people.name %></td>
           </tr>
           <tr>
-            <td class="table-active w-50">Identificación</td>
+            <td class="table-active w-50"><%= @user.type_people_id == 1 ? 'Cédula o pasaporte' : 'RIF' %></td>
             <td><%= @user.identification %></td>
           </tr>
           <tr>
