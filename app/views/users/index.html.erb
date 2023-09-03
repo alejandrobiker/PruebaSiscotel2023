@@ -19,13 +19,18 @@
           <td><%= user.email %></td>
           <td><%= user.main_phone %></td>
           <td>
-            <%= link_to 'Ver', user_path(user) %>
-            <%= link_to 'Editar', edit_user_path(user) %>
-            <%= link_to 'Eliminar', user_path(user), data: {
+            <%= link_to user_path(user), class:"text-decoration-none" do %>
+              <%= image_tag 'icons/show.svg', width:20, height: 20 %>
+            <% end %>
+            <%= link_to edit_user_path(user), class:"text-decoration-none" do %>
+              <%= image_tag 'icons/edit.svg', width:20, height: 20 %>
+            <% end %>
+            <%= link_to user_path(user), class:"text-decoration-none", data: {
               turbo_method: :delete,
               turbo_confirm: t('common.confirm')
-            } 
-          %>
+            } do %>
+              <%= image_tag "icons/delete.svg", width:20, height: 20 %>
+            <% end %>
           </td>
         </tr>
       <% end %>
