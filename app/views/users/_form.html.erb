@@ -1,0 +1,97 @@
+<%= form_with model: @user do |form| %>
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3">
+      <%= form.label :type_people_id %>
+      <%= form.collection_select(:type_people_id, TypePeople.all.order(id: :asc), :id, :name, { prompt: "Seleccione..." }, onchange: 'typePeopleChange(this.value)', class:"form-select", id: "type_people_select")  %>
+      <% @user.errors.full_messages_for(:type_people_id).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
+      <% end%>
+    </div>
+    <div class="col-12 col-sm-6 mb-3">
+      <%= form.label :identification, id: "identification-label" %>
+      <%= form.text_field :identification, class: "form-control" %>
+      <% @user.errors.full_messages_for(:identification).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
+      <% end%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3">
+      <%= form.label :name, id: "name-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+      <% @user.errors.full_messages_for(:name).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
+      <% end%>
+    </div>
+    <div class="col-12 col-sm-6 mb-3">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control" %>
+      <% @user.errors.full_messages_for(:email).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
+      <% end%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3">
+      <%= form.label :issuance_date %>
+      <%= form.date_field :issuance_date, class: "form-control" %>
+      <% @user.errors.full_messages_for(:issuance_date).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
+      <% end%>
+    </div>
+    <div class="col-12 col-sm-6 mb-3">
+      <%= form.label :expiration_date %>
+      <%= form.date_field :expiration_date, class: "form-control" %>
+      <% @user.errors.full_messages_for(:expiration_date).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
+      <% end%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3">
+      <%= form.label :main_phone %>
+      <%= form.text_field :main_phone, class: "form-control" %>
+      <% @user.errors.full_messages_for(:main_phone).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
+      <% end%>
+    </div>
+    <div class="col-12 col-sm-6 mb-3">
+      <%= form.label :secondary_phone %>
+      <%= form.text_field :secondary_phone, class: "form-control" %>
+      <% @user.errors.full_messages_for(:secondary_phone).each do |message| %>
+        <div class="text-danger"> <%= message %> </div>
+      <% end%>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+    <%= link_to t('common.back'), users_path, class: "btn btn-secondary mx-2" %>
+    <%= form.submit @user.id ? t('common.button_update') : t('common.button_create'), class: "btn btn-success" %>
+  </div>
+<%end %>
+<script>
+  loadEditUser();
+  function loadEditUser() {
+    var type_people_select = document.getElementById("type_people_select")
+    var value = type_people_select.value
+    typePeopleChange(value)
+  }
+
+  function typePeopleChange(value) {
+    var label_iden = document.getElementById("identification-label");
+    var label_name = document.getElementById("name-label");
+    switch (value) {
+      case "1":
+        label_iden.innerText = "Cédula o pasaporte";
+        label_name.innerHTML = "Nombre completo"
+        break;
+      case "2":
+        label_iden.innerHTML = "RIF"
+        label_name.innerText = "Nombre de empresa o razón social";
+        break;
+      default:
+        label_iden.innerHTML = "Número de identificacíon"
+        label_name.innerHTML = "Nombre"
+        break;
+    }
+  }
+</script>

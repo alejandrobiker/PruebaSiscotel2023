@@ -1,0 +1,60 @@
+es:
+  activerecord:
+    models:
+      user: Usuario
+    attributes:
+      user:
+        type_people_id: 'Tipo de persona'
+        identification: 'Número de identificación'
+        issuance_date: 'Fecha de emisión del documento'
+        expiration_date: 'Fecha de vencimiento del documento'
+        name: 'Nombre'
+        email: 'Correo eléctronico'
+        main_phone: 'Teléfono principal'
+        secondary_phone: 'Teléfono secundario'
+    errors:
+      models:
+        user:
+          attributes:
+            type_people_id:
+              blank: 'no puede estar vacío.'
+            identification:
+              blank: 'no puede estar vacío.'
+            issuance_date:
+              blank: 'no puede estar vacío.'
+            expiration_date:
+              blank: 'no puede estar vacío.'
+            name:
+              blank: 'no puede estar vacío.'
+              invalid: 'sólo se permiten caracteres alfanuméricos, la ñ y caracteres acentuados.'
+            email:
+              blank: 'no puede estar vacío.'
+              invalid: 'formato de email incorrecto.'
+            main_phone:
+              blank: 'no puede estar vacío.'
+              invalid: 'sólo se permiten caracteres numéricos y debe empezar por cero.'
+            secondary_phone:
+              invalid: 'sólo se permiten caracteres numéricos y debe empezar por cero.'
+  shared:
+    header:
+      users: 'Usuarios'
+      register_user: 'Registrar usuario'
+  common:
+    confirm: '¿Estas seguro?'
+    back: 'Regresar'
+    button_create: 'Guardar'
+    button_update: 'Actualizar'
+  users:
+    show:
+      title: 'Ver usuario'
+    new:
+      title: 'Agregar usuario'
+    edit:
+      title: 'Actualizar usuario'
+    create:
+      created: 'Usuario creado.'
+    update:
+      updated: 'Usuario actualizado.'
+    destroy:
+      destroyed: 'Usuario eliminado.'
+  

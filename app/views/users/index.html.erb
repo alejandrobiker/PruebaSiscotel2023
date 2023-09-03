@@ -1,0 +1,39 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Identificación</th>
+        <th scope="col">Email</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.identification %></td>
+          <td><%= user.email %></td>
+          <td><%= user.main_phone %></td>
+          <td>
+            <%= link_to user_path(user), class:"text-decoration-none" do %>
+              <%= image_tag 'icons/show.svg', width:20, height: 20 %>
+            <% end %>
+            <%= link_to edit_user_path(user), class:"text-decoration-none" do %>
+              <%= image_tag 'icons/edit.svg', width:20, height: 20 %>
+            <% end %>
+            <%= link_to user_path(user), class:"text-decoration-none", data: {
+              turbo_method: :delete,
+              turbo_confirm: t('common.confirm')
+            } do %>
+              <%= image_tag "icons/delete.svg", width:20, height: 20 %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

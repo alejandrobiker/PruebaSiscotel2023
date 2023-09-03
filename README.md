@@ -21,4 +21,27 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+
+
+# Commands documentation
+
+### Running server
+` rails server `
+
+###  Create database
+` rails db:create `
+
+###  Create database migration
+` rails db:migrate `
+
+###  Create model
+` rails generate model {Model} {field}:string {field}:text {price}:integer `
+
+###  Create migration
+` rails generate migration {NameMigration} `
+
+###  Running seed
+` rails db:seed`
+
+###  Running tests
+` rails test `

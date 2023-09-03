@@ -1,33 +1,60 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        type_people_id: 'Type people'
+        identification: 'Identication number '
+        issuance_date: 'Issuance date'
+        expiration_date: 'Expiration date'
+        name: 'Name'
+        email: 'Email'
+        main_phone: 'Main phone'
+        secondary_phone: 'Secondary phone'
+    errors:
+      models:
+        user:
+          attributes:
+            type_people_id:
+              blank: 'cannot be empty.'
+            identification:
+              blank: 'cannot be empty.'
+            issuance_date:
+              blank: 'cannot be empty.'
+            expiration_date:
+              blank: 'cannot be empty.'
+            name:
+              blank: 'cannot be empty.'
+              invalid: 'only alphanumeric characters, ñ and accented characters are allowed.'
+            email:
+              blank: 'cannot be empty.'
+              invalid: 'incorrect email format.'
+            main_phone:
+              blank: 'cannot be empty.'
+              invalid: 'only numeric characters are allowed and must start with zero.'
+            secondary_phone:
+              invalid: 'only numeric characters are allowed and must start with zero.'
+  shared:
+    header:
+      users: 'Users'
+      register_user: 'Register user'
+  common:
+    confirm: 'You are sure?'
+    back: 'Go back'
+    button_create: 'Save'
+    button_update: 'Update'
+  users:
+    show:
+      title: 'Show user'
+    new:
+      title: 'Add user'
+    edit:
+      title: 'Update user'
+    create:
+      created: 'User created.'
+    update:
+      updated: 'User updated.'
+    destroy:
+      destroyed: 'User deleted.'
+  
