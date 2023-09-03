@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+  <div id="flash-notice" class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+  <script>
+    setTimeout(function() {
+      document.getElementById('flash-notice').style.display = 'none';
+    }, 2000);
+  </script>
+<% end %>
