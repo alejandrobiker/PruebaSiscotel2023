@@ -40,5 +40,8 @@ Things you may want to cover:
 ###  Create migration
 ` rails generate migration {NameMigration} `
 
+###  Running seed
+` rails db:seed`
+
 ###  Running tests
 ` rails test `
